@@ -1,0 +1,105 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "campeonatobrasileiro",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "ach": "ach"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "campeonatobrasileiro.view.Main",
+      "type": "XML",
+      "async": true,
+      "id": "Main"
+    },
+    "dependencies": {
+			"minUI5Version": "1.114.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "campeonatobrasileiro.i18n.i18n"
+        }
+      },
+      "PartidasModel2": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/partidas.json"
+
+      },
+      "ClassificacaoModel2": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "model/classificacao.json"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "campeonatobrasileiro.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": "RouteMain",
+          "target": ["TargetMain"]
+        }
+      ],
+      "targets": {
+        "TargetMain": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Main",
+          "viewName": "Main"
+        }
+      }
+    }
+  }
+}

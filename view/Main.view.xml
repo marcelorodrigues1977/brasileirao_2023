@@ -1,0 +1,111 @@
+<mvc:View
+    controllerName="campeonatobrasileiro.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+<App>
+	<pages>
+   <Page id="page" title="Campeonato Brasileiro - 2022">
+        <ObjectHeader title="{ModeloDadosGerais>/nome_popular}"
+            number="{ModeloDadosGerais>/rodada_atual/rodada}"
+            numberUnit="Rodada"
+        />
+        <IconTabBar>
+            <items>
+                <IconTabFilter text="Classificacao"
+							icon="sap-icon://competitor" 
+							key="classificacao">
+					<Table items="{ModeloClassificacao>/Classificacao}">
+						<columns>
+							<Column>
+								<Text text="Posição"></Text>
+							</Column>	
+							<Column>
+								<Text text="Escudo"></Text>
+							</Column>								
+							<Column>
+								<Text text="Time"></Text>
+							</Column>	
+							<Column>
+								<Text text="Pts"></Text>
+							</Column>			
+							<Column>
+								<Text text="PJ"></Text>
+							</Column>		
+							<Column>
+								<Text text="VIT"></Text>
+							</Column>			
+							<Column>
+								<Text text="E"></Text>
+							</Column>			
+							<Column>
+								<Text text="DER"></Text>
+							</Column>					
+							<Column>
+								<Text text="GM"></Text>
+							</Column>		
+							<Column>
+								<Text text="GC"></Text>
+							</Column>		
+							<Column>
+								<Text text="SG"></Text>
+							</Column>																																																			
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{ModeloClassificacao>posicao}"></Text>									
+									<Image width="40%" src="{ModeloClassificacao>time/escudo}"></Image>
+									<Text text="{ModeloClassificacao>time/nome_popular}"></Text>
+									<Text text="{ModeloClassificacao>pontos}"></Text>
+									<Text text="{ModeloClassificacao>jogos}"></Text>
+									<Text text="{ModeloClassificacao>vitorias}"></Text>
+									<Text text="{ModeloClassificacao>empates}"></Text>
+									<Text text="{ModeloClassificacao>derrotas}"></Text>
+									<Text text="{ModeloClassificacao>gols_pro}"></Text>
+									<Text text="{ModeloClassificacao>gols_contra}"></Text>
+									<Text text="{ModeloClassificacao>saldo_gols}"></Text>
+								</cells>								
+							</ColumnListItem>							
+						</items>	
+					</Table>
+                </IconTabFilter>
+                <IconTabFilter text="Partidas"
+							   icon="sap-icon://soccer" 				
+							    key="partidas">
+								<Table id="partidasTable"
+								items="{ModeloPartidas>/partidas}"
+								inset="false">
+									<columns>
+										<Column>
+											<Text text=""></Text>
+										</Column>	
+										<Column>
+											<Text text=""></Text>
+										</Column>		
+										<Column>
+											<Text text=""></Text>
+										</Column>																																															
+									</columns>
+									<items>
+										<ColumnListItem vAlign="Middle">
+											<cells>
+												<Image width="15%" src="{ModeloPartidas>time_mandante/escudo}"></Image>
+											<VBox>
+												<Text text="{ModeloPartidas>placar}" />
+												<Text text="{ModeloPartidas>data_realizacao} {ModeloPartidas>hora_realizacao} "/>
+												<Text text="{ModeloPartidas>status}" />	
+											</VBox>	
+											<Image width="15%" src="{ModeloPartidas>time_visitante/escudo}"></Image>											
+											</cells>
+										</ColumnListItem>																												
+									</items>	
+								</Table>								
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+    </Page>
+</pages>
+</App>	
+</mvc:View>
